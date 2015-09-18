@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page title</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Description" content="test site" />
+	<meta http-equiv="Keywords" content="testing, HTML5, CSS3, angularJS," />
+
+	<link rel="stylesheet" href="css/styles.css" />
+	<script type="text/javascript" src="js/lib/jquery.js"></script>
+	<script src="js/lib/angular.min.js"></script>
+    <script src="js/lib/angular-route.min.js"></script>
+	<!--<script src="/mark/angular-master/angular-master/bower_components/angular/angular.min.js"></script>
+	<script src="/mark/angular-master/angular-master/bower_components/angular-route/angular-route.min.js"></script>-->
+    <script src="js/script.js"></script>
+
+</head>
+
+<body>
+	<header>
+		<div class="header">		
+			<ul>
+				<li class="logo">LOGO</li>
+				<li>
+					<input type="text" placeholder="Search" value="Search" name="Search" id="search" autocomplete="off">
+				</li>
+			</ul>
+		</div>
+		
+		<nav class="menu" ng-controller="navCtrl">
+			{{ test }}
+			<ul>
+				<li ng-repeat="key in notSorted(menu)"
+					ng-class="{active : checkActiveItem(key)}" ng-init="value = menu[key]">
+					<a href="#/{{key}}" ng-click="setActiveItem(key)">{{value}}</a>
+				</li>
+			</ul>
+		</nav>
+	</header>  
+	
+	<section class="wrapper">
+		<div class="container">
+			<ng-view></ng-view>
+		</div>	
+	</section>
+	  
+	<footer>
+		<h2>Created by Mark</h2>
+	</footer>	
+	
+	<!--<script src="js/script.js"></script>-->
+
+</body>
+</html>
